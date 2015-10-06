@@ -11,7 +11,7 @@ class Section < ActiveRecord::Base
   scope :search_by_name, lambda {|query|
     where (["name LIKE ?", "%#{query}%"])
   }
-  scope :search_by_desc lambda {|query|
+  scope :search_by_desc, lambda {|query|
     where (["description LIKE ?", "%#{query}%"])
   }
 

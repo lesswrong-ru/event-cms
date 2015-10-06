@@ -9,6 +9,6 @@ class CreateSpeakers < ActiveRecord::Migration
   end
   
   def down
-    drop table :speakers
+    drop_table :speakers
   end
 end

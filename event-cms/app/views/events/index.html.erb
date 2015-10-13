@@ -1,2 +1,32 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<% @page_title = "Events" %>
+<%= link_to("<< Back to Admin Page", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
+<div class="events index">
+  <h2>Events</h2>
+
+  <%= link_to("Add New Event", {:action => 'new'}, :class => 'action new') %>
+
+  <div>
+    <%= pluralize(@events.size, 'event') %> found
+  </div>
+  <table class="listing" summary="Event list">
+    <tr class="header">
+      <th>Date</th>
+	  <th>Timeframe</th>
+      <th>Title</th>
+      <th>Actions</th>
+    </tr>
+    <% @events.each do |event| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+	  <td><%= Event.display_date(event) %></td>
+	  <td><%= Event.display_time(event) %></td>
+      <td><%= event.title %></td>
+      <td class="actions">
+        <%= link_to("Manage Sections", {:controller => 'sections', :action => 'index', :event_id => event.id}, :class => 'action show') %>
+        <%= link_to("Show",   {:action => 'show', :id => event.id},   :class => 'action show')   %>
+        <%= link_to("Edit",   {:action => 'edit', :id => event.id},   :class => 'action edit')   %>
+        <%= link_to("Delete", {:action => 'delete', :id => event.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div> 

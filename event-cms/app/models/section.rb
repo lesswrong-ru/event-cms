@@ -8,6 +8,7 @@ class Section < ActiveRecord::Base
   scope :invisible,		lambda {where(:visible => false)}
   scope :sorted, 		lambda {order("sections.name ASC")}
   scope :newest_first,	lambda {order("sections.created_at DESC")}
+  scope :sorted_by_starting_time, lambda {order("date ASC, sections.start_time ASC")}
   scope :search_by_name, lambda {|query|
     where (["name LIKE ?", "%#{query}%"])
   }
@@ -15,4 +16,19 @@ class Section < ActiveRecord::Base
     where (["description LIKE ?", "%#{query}%"])
   }
 
+  # Displaying section timeframe from start_time and finish_time
+  def self.display_time(section)
+    if section.start_time
+	  return "#{section.start_time.strftime("%H:%M")} - #{section.finish_time.strftime("%H:%M")}"
+    end
+  end
+  
+  # Displaying section timeframe from start_time and finish_time
+  def self.display_date(section)
+    if section.date
+	  return "#{section.date.strftime("%d.%m.%Y")}"
+    else
+    end
+  end
+  
 end

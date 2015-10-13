@@ -1,0 +1,26 @@
+<table summary="Section form fields">
+  <tr>
+	<th><%= f.label(:title, "Title")%></th>
+	<td><%= f.text_field(:title) %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:description)%></th>
+	<td><%= f.text_area(:description, :size => "160x40") %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:date)%></th>
+	<td><%= f.text_field(:date, :size => "160x40") %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:start_time)%></th>
+	<td><%= f.text_field(:start_time, :size => "160x40") %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:finish_time)%></th>
+	<td><%= f.text_field(:finish_time, :size => "160x40") %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:visible)%></th>
+	<td><%= f.check_box(:visible) %></td>
+  </tr>
+</table>

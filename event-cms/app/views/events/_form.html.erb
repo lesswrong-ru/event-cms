@@ -1,0 +1,14 @@
+<table summary="Event form fields">
+  <tr>
+	<th><%= f.label(:title, "Title")%></th>
+	<td><%= f.text_field(:title) %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:description)%></th>
+	<td><%= f.text_area(:description, :size => "160x40") %></td>
+  </tr>
+  <tr>
+	<th><%= f.label(:visible)%></th>
+	<td><%= f.check_box(:visible) %></td>
+  </tr>
+</table>

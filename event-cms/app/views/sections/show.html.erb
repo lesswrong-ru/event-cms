@@ -1,2 +1,42 @@
-<h1>Sections#show</h1>
-<p>Find me in app/views/sections/show.html.erb</p>
+<% @page_title = "Show Section" %>
+<%= link_to("<< Back to List", {:action => 'index', :event_id => params[:event_id]}, :class => 'back-link') %>
+
+<div class="sections show">
+  <h2>Show Section</h2>
+
+  <table summary="Section detail view">
+    <tr>
+      <th>Title</th>
+      <td><%= @section.title %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @section.description %></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><%= Section.display_date(@section) %></td>
+    </tr>
+    <tr>
+      <th>Start time</th>
+      <td><%= @section.start_time.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+      <th>Finish time</th>
+      <td><%= @section.finish_time.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+      <th>Visible?</th>
+      <td><%= @section.visible ? 'true' : 'false' %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @section.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @section.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

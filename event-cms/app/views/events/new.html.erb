@@ -1,2 +1,16 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<% @page_title = "Create Event" %>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="events new">
+  <h2>Create Event</h2>
+
+  <%= form_for(:event, :url => {:action => 'create'}) do |f| %>
+
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Event") %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,2 +1,27 @@
-<h1>Speakers#index</h1>
-<p>Find me in app/views/speakers/index.html.erb</p>
+<% @page_title = "Speakers" %>
+<%= link_to("<< Back to Admin Page", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
+<div class="speakers index">
+  <h2>Speakers</h2>
+
+  <%= link_to("Add New Speaker", {:action => 'new'}, :class => 'action new') %>
+
+  <div>
+    <%= pluralize(@speakers.size, 'speaker') %> found
+  </div>
+  <table class="listing" summary="Speaker list">
+    <tr class="header">
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    <% @speakers.each do |speaker| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+	  <td><%= speaker.name %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => speaker.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => speaker.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => speaker.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div> 

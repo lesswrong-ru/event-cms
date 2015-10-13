@@ -1,2 +1,16 @@
-<h1>Speakers#edit</h1>
-<p>Find me in app/views/speakers/edit.html.erb</p>
+<% @page_title = "Edit Speaker" %>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="speakers edit">
+  <h2>Edit Speaker</h2>
+
+  <%= form_for(:speaker, :url => {:action => 'update', :id => @speaker.id}) do |f| %>
+
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Edit Speaker") %>
+    </div>
+
+  <% end %>
+</div>

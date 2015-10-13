@@ -1,2 +1,31 @@
-<h1>Sections#index</h1>
-<p>Find me in app/views/sections/index.html.erb</p>
+<% @page_title = "Sections" %>
+<%= link_to("<< Back to Events Page", {:controller => 'events', :action => 'index'}, :class => 'back-link') %>
+<div class="sections index">
+  <h2>Sections</h2>
+
+  <%= link_to("Add New Section", {:action => 'new', :event_id => params[:event_id]}, :class => 'action new') %>
+
+  <div>
+    <%= pluralize(@sections.size, 'section') %> found
+  </div>
+  <table class="listing" summary="Section list">
+    <tr class="header">
+      <th>Date</th>
+      <th>Time</th>
+      <th>Title</th>
+      <th>Actions</th>
+    </tr>
+    <% @sections.each do |section| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+	  <td><%= Section.display_date(section) %></td>
+	  <td><%= Section.display_time(section) %></td>
+      <td><%= section.title %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => section.id, :event_id => params[:event_id]}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => section.id, :event_id => params[:event_id]}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => section.id, :event_id => params[:event_id]}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div> 

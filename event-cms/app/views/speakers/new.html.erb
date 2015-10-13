@@ -1,2 +1,16 @@
-<h1>Speakers#new</h1>
-<p>Find me in app/views/speakers/new.html.erb</p>
+<% @page_title = "Create Speaker" %>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="speakers new">
+  <h2>Create Speaker</h2>
+
+  <%= form_for(:speaker, :url => {:action => 'create'}) do |f| %>
+
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Speaker") %>
+    </div>
+
+  <% end %>
+</div>

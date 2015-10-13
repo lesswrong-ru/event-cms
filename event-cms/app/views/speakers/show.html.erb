@@ -1,2 +1,26 @@
-<h1>Speakers#show</h1>
-<p>Find me in app/views/speakers/show.html.erb</p>
+<% @page_title = "Show Speaker" %>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="speakers show">
+  <h2>Show Speaker</h2>
+
+  <table summary="Speaker detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @speaker.name %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @speaker.description %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @speaker.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @speaker.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

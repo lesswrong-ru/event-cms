@@ -26,6 +26,10 @@
       <td><%= @section.finish_time.strftime("%H:%M") %></td>
     </tr>
     <tr>
+      <th>Speakers</th>
+      <td><%= Section.display_speakers(@section) %></td>
+    </tr>
+    <tr>
       <th>Visible?</th>
       <td><%= @section.visible ? 'true' : 'false' %></td>
     </tr>

@@ -23,4 +23,14 @@
 	<th><%= f.label(:visible)%></th>
 	<td><%= f.check_box(:visible) %></td>
   </tr>
+  <tr>
+	<th>Speaker</th>
+	<td><%= collection_select(:speaker, :id, Speaker.all, :id, :name, {}, {:multiple => true}) %>
+	<br />
+	<%= link_to("Add new speaker", 
+	{:controller => 'speakers', 
+	 :action     => 'new'}, 
+	 :class      => 'back-link') %>
+	</td>
+  </tr>
 </table>

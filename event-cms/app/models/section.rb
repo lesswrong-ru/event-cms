@@ -31,4 +31,8 @@ class Section < ActiveRecord::Base
     end
   end
   
+  def self.display_speakers(section)
+    section.speakers.collect(&:name).join(", ")
+  end
+  
 end

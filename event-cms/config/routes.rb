@@ -1,5 +1,7 @@
 EventCms::Application.routes.draw do
 
+get 'admin', :to => "access#index"
+
   # Default route
 match ':controller(/:action(/:id))', :via => [:get, :post]
 

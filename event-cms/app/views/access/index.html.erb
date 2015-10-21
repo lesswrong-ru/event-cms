@@ -1,0 +1,13 @@
+<% @page_title = "Admin Menu" %>
+
+<div class="menu">
+  <h2>Admin Menu</h2>
+  <div class="identity">Logged in as:</div>
+  <ul>
+    <li><%= link_to("Create an Event", :controller => 'events', :action => 'new') %></li>
+    <li><%= link_to("List Events", :controller => 'events') %></li>
+    <li><%= link_to("List all Sections", :controller => 'sections') %></li>
+    <li><%= link_to("List Speakers", :controller => 'speakers') %></li>
+    <li><%= link_to("Logout", :action => 'logout') %></li>
+  </ul>
+</div>

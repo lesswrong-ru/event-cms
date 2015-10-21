@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
 
+  before_action :confirm_logged_in
   before_action :find_event
-
   
   def index
     if @event

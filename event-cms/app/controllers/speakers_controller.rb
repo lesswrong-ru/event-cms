@@ -1,5 +1,7 @@
 class SpeakersController < ApplicationController
 
+  before_action :confirm_logged_in
+
   def index
     @speakers = Speaker.sorted
   end
